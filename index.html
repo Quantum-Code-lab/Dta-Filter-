@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter with JQ </title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #000;">
+    <header>
+      <nav>
+        <h1>Filter With Fun</h1>
+      </nav> 
+    </header>
+    <main>
+      <div class="option-filter">
+        <ul>
+          <li data-filter="*" id="active">ALL</li>
+          <li data-filter=".dev">WEB DEV</li>
+          <li data-filter=".design">WEB DESIGN</li>
+          <li data-filter=".full-stack">FULL STACK</li>
+          <li data-filter=".database">Database</li>
+        </ul>
+      </div>
+      <div class="prid">
+          <div class="element-item design" style="background-color: hsl(18, 87%, 56%);">HTML</div>
+          <div class="element-item design" style="background-color: hsl(0, 0%, 28%);">CSS </div>
+          <div class="element-item design" style="background-color: hsl(48, 100%, 51%);">JS</div>
+          <div class="element-item design" style="background-color: hsl(195, 97%, 13%);">Bootstrap </div>
+          <div class="element-item design" style="background-color: hsl(196, 49%, 18%);">C# </div>
+          <div class="element-item dev full-stack" style="background-color: hsl(201, 87%, 54%);">PHP </div>
+          <div class="element-item dev" style="background-color: hsl(120, 50%, 40%);">NodeJS</div>
+          <div class="element-item dev full-stack database" style="background-color: hsl(37, 100%, 45%);">Mysql</div>
+          <div class="element-item database" style="background-color: hsl(123, 71%, 49%);">Mongo DB</div>
+          <div class="element-item dev full-stack" style="background-color: hsl(4, 88%, 61%);">Laravel</div>
+          <div class="element-item dev full-stack" style="background-color: hsl(204, 100%, 40%)">TypeScript</div>
+          <div class="element-item dev" style="background-color: hsl(56, 13%, 26%);">Python</div>
+      </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="isotope.pkgd.min.js"></script>
+    <script>
+      // init Isotope
+      var $grid = $('.prid').isotope({
+        // options
+      });
+      // filter items on button click
+      $('.option-filter').on( 'click', 'li', function() {
+        var filterValue = $(this).attr('data-filter');
+        $grid.isotope({ filter: filterValue });
+      });
+    </script>
+</body>
+</html>
